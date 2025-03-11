@@ -1,0 +1,6 @@
+aws_profile = "Mike"
+aws_region = "eu-central-1"
+instance_type = "t2.micro"
+instance_name = "devops_pet_micro_aws"
+ssh_key_name = "myke-ssh-key"
+ami_id = "ami-07eef52105e8a2059"
