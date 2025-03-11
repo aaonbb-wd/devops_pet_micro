@@ -1,6 +1,7 @@
 DevOps Pet Micro
 Educational microproject for learning DevOps fundamentals, GitHub practices, and custom domain configuration.
 The technical essence of the project is automated WordPress deployment using modern Infrastructure as Code (IaC) tools.
+
 Project Structure
 
 Terraform - for creating AWS infrastructure
