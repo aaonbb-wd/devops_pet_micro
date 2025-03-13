@@ -1,0 +1,9 @@
+---
+- name: create wp site
+  hosts: servers # Removed brackets
+  become: true # This is fine, enables sudo for all tasks
+  roles:
+    - { role: nginx, tags: ["nginx_all"] }
+    - { role: php, tags: ["php_all"] }
+    - { role: mysql, tags: ["mysql_all"] }
+    - { role: wordpress, tags: ["wp_all"] } # Changed to match actual role name

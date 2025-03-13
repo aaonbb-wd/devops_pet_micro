@@ -1,0 +1,38 @@
+---
+- name: Download latest WordPress archive
+  ansible.builtin.get_url:
+    url: https://wordpress.org/latest.tar.gz
+    dest: /tmp/latest.tar.gz
+    mode: "0644"
+
+- name: Ensure WordPress directory exists
+  file:
+    path: "{{ wordpress_install_dir }}"
+    state: directory
+    owner: "{{ wordpress_user }}"
+    group: "{{ wordpress_group }}"
+    mode: "0755"
+
+- name: Extract WordPress archive to target directory
+  unarchive:
+    src: /tmp/latest.tar.gz
+    dest: "{{ wordpress_install_dir }}"
+    remote_src: yes
+    extra_opts: [--strip-components=1]
+
+- name: Set proper ownership and permissions for WordPress directory
+  file:
+    path: "{{ wordpress_install_dir }}"
+    state: directory
+    owner: "{{ wordpress_user }}"
+    group: "{{ wordpress_group }}"
+    mode: "0755"
+    recurse: yes
+
+- name: Deploy wp-config.php from template
+  template:
+    src: wp-config.php.j2
+    dest: "{{ wordpress_install_dir }}/wp-config.php"
+    owner: "{{ wordpress_user }}"
+    group: "{{ wordpress_group }}"
+    mode: "0644"

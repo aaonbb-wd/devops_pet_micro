@@ -1,0 +1,31 @@
+---
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Deploy Nginx configuration for WordPress
+  template:
+    src: nginx-wordpress.conf.j2
+    dest: /etc/nginx/sites-available/{{ wp_site_name }}
+    owner: root
+    group: root
+    mode: "0644"
+
+- name: Enable WordPress site in Nginx
+  file:
+    src: /etc/nginx/sites-available/{{ wp_site_name }}
+    dest: /etc/nginx/sites-enabled/{{ wp_site_name }}
+    state: link
+    force: yes
+
+- name: Disable default Nginx site
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Restart nginx
+  service:
+    name: nginx
+    state: restarted
+  become: true

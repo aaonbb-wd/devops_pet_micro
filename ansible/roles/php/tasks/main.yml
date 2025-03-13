@@ -1,0 +1,16 @@
+---
+- name: Update apt cache for PHP
+  apt:
+    update_cache: yes
+  tags: php_all
+
+- name: Install PHP-FPM and required PHP extensions
+  apt:
+    name:
+      - php{{ php_version }}-fpm
+      - php{{ php_version }}-mysql
+      - php{{ php_version }}-cli
+      - php{{ php_version }}-curl
+      - php{{ php_version }}-xml
+    state: present
+  tags: php_all

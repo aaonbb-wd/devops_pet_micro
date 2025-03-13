@@ -1,0 +1,5 @@
+---
+#---
+#nginx_server_name: "{{ ansible_host }}"
+#php_version: "8.1"
+#wp_site_name: "{{ ansible_host }}"
