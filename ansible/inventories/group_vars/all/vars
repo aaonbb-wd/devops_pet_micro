@@ -1,34 +1,37 @@
 ---
-#ansible_ssh_private_key_file: ~/.ssh/myke.pem
-
-# Общие настройки
-#ansible_become: true
+ansible_become: true
 ansible_user: ubuntu
 ansible_python_interpreter: /usr/bin/python3
 
-# Настройки MySQL
+# MySQL
 mysql_db_name: wordpress
 mysql_user: wordpress
 mysql_password: wordpress_password
 mysql_host: localhost
+mysql_root_password: "rootpassword"
+mysql_container_subnet: "172.17.0.0/16"
 
-# Настройки WordPress
+# WordPress (часть не используется в контейнере)
 wordpress_version: latest
 wordpress_path: /var/www/wordpress
 wordpress_owner: www-data
 wordpress_group: www-data
 
-# Настройки NGINX
-nginx_server_name: "wordpress"
-php_version: "8.3"
+# NGINX
+nginx_server_name: wordpress
+php_version: 8.3
 wp_site_name: wordpress
 
-mysql_root_password: "rootpassword"
-wp_db_host: "wordpress"
-wp_db_name: "wordpress"
-wp_db_user: "wordpress"
-wp_db_password: "wordpress_password"
-# WordPress директории
+# WordPress в контейнере
+wp_db_host: "172.17.0.0/16"
+wp_db_name: wordpress
+wp_db_user: wordpress
+wp_db_password: wordpress_password
+
+# WordPress директории (не используются)
 wordpress_base_dir: /var/www
-wordpress_install_dir: /var/www/html
+wordpress_install_dir: /var/www/wordpress
 wordpress_user: www-data
+
+# Docker
+docker_image: "mikekoby/devops_pet_micro:2.0"
