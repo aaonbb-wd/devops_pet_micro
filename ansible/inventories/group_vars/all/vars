@@ -6,9 +6,9 @@ ansible_python_interpreter: /usr/bin/python3
 # MySQL
 mysql_db_name: wordpress
 mysql_user: wordpress
-mysql_password: wordpress_password
+#mysql_password: wordpress_password
 mysql_host: localhost
-mysql_root_password: "rootpassword"
+#mysql_root_password: "rootpassword"
 mysql_container_subnet: "172.17.0.0/16"
 
 # WordPress (часть не используется в контейнере)
@@ -26,7 +26,7 @@ wp_site_name: wordpress
 wp_db_host: "172.17.0.0/16"
 wp_db_name: wordpress
 wp_db_user: wordpress
-wp_db_password: wordpress_password
+#wp_db_password: wordpress_password
 
 # WordPress директории (не используются)
 wordpress_base_dir: /var/www

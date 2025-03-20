@@ -20,7 +20,9 @@
     enabled: yes
 
 - name: Create WordPress database
-  shell: mysql -u root -e "CREATE DATABASE IF NOT EXISTS {{ mysql_db_name }};"
+  shell: mysql -e "CREATE DATABASE IF NOT EXISTS {{ mysql_db_name }};"
+  become: yes
+  become_user: root
   changed_when: false
 
 - name: Create MySQL user for WordPress with Docker subnet access
