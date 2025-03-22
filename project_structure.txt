@@ -1,0 +1,104 @@
+.:
+total 16
+4 drwxrwxr-x 4 mykekoby mykekoby 4096 2025-03-18 16:55 ansible/
+4 drwxrwxr-x 3 mykekoby mykekoby 4096 2025-03-13 14:22 docker/
+0 -rw-rw-r-- 1 mykekoby mykekoby    0 2025-03-18 17:24 project_structure.txt
+4 -rw-rw-r-- 1 mykekoby mykekoby  708 2025-03-11 18:21 README.md
+4 drwxrwxr-x 3 mykekoby mykekoby 4096 2025-03-13 15:53 terraform/
+
+./ansible:
+total 16
+4 -rw-rw-r-- 1 mykekoby mykekoby  147 2025-03-13 14:45 ansible.cfg
+4 drwxrwxr-x 4 mykekoby mykekoby 4096 2025-03-12 16:25 inventories/
+4 -rw-rw-r-- 1 mykekoby mykekoby  199 2025-03-17 16:50 playbook.yml
+4 drwxrwxr-x 5 mykekoby mykekoby 4096 2025-03-17 14:32 roles/
+
+./ansible/inventories:
+total 12
+4 drwxrwxr-x 3 mykekoby mykekoby 4096 2025-03-12 15:51 group_vars/
+4 -rw-rw-r-- 1 mykekoby mykekoby   28 2025-03-17 12:02 hosts.yml
+4 drwxrwxr-x 3 mykekoby mykekoby 4096 2025-03-12 16:25 host_vars/
+
+./ansible/inventories/group_vars:
+total 4
+4 drwxrwxr-x 2 mykekoby mykekoby 4096 2025-03-18 17:22 all/
+
+./ansible/inventories/group_vars/all:
+total 8
+4 -rw-rw-r-- 1 mykekoby mykekoby 810 2025-03-18 17:01 vars
+4 -rw------- 1 mykekoby mykekoby 614 2025-03-18 17:02 vault
+
+./ansible/inventories/host_vars:
+total 4
+4 drwxrwxr-x 2 mykekoby mykekoby 4096 2025-03-12 15:34 wordpress/
+
+./ansible/inventories/host_vars/wordpress:
+total 4
+4 -rw-rw-r-- 1 mykekoby mykekoby 143 2025-03-12 16:05 vars.yml
+
+./ansible/roles:
+total 12
+4 drwxrwxr-x 4 mykekoby mykekoby 4096 2025-03-17 14:35 docker/
+4 drwxrwxr-x 4 mykekoby mykekoby 4096 2025-03-17 16:13 mysql/
+4 drwxrwxr-x 5 mykekoby mykekoby 4096 2025-03-17 14:35 nginx/
+
+./ansible/roles/docker:
+total 8
+4 drwxrwxr-x 2 mykekoby mykekoby 4096 2025-03-17 11:19 handlers/
+4 drwxrwxr-x 2 mykekoby mykekoby 4096 2025-03-17 14:35 tasks/
+
+./ansible/roles/docker/handlers:
+total 4
+4 -rw-rw-r-- 1 mykekoby mykekoby 72 2025-03-17 11:21 main.yml
+
+./ansible/roles/docker/tasks:
+total 4
+4 -rw-rw-r-- 1 mykekoby mykekoby 974 2025-03-17 16:45 main.yml
+
+./ansible/roles/mysql:
+total 8
+4 drwxrwxr-x 2 mykekoby mykekoby 4096 2025-03-17 11:20 handlers/
+4 drwxrwxr-x 2 mykekoby mykekoby 4096 2025-03-11 19:06 tasks/
+
+./ansible/roles/mysql/handlers:
+total 4
+4 -rw-rw-r-- 1 mykekoby mykekoby 70 2025-03-17 11:21 main.yml
+
+./ansible/roles/mysql/tasks:
+total 4
+4 -rw-rw-r-- 1 mykekoby mykekoby 948 2025-03-18 17:15 main.yml
+
+./ansible/roles/nginx:
+total 12
+4 drwxrwxr-x 2 mykekoby mykekoby 4096 2025-03-17 11:20 handlers/
+4 drwxrwxr-x 2 mykekoby mykekoby 4096 2025-03-11 18:52 tasks/
+4 drwxrwxr-x 2 mykekoby mykekoby 4096 2025-03-12 00:35 templates/
+
+./ansible/roles/nginx/handlers:
+total 4
+4 -rw-rw-r-- 1 mykekoby mykekoby 70 2025-03-17 11:21 mail.yml
+
+./ansible/roles/nginx/tasks:
+total 4
+4 -rw-rw-r-- 1 mykekoby mykekoby 561 2025-03-17 14:37 main.yml
+
+./ansible/roles/nginx/templates:
+total 4
+4 -rw-rw-r-- 1 mykekoby mykekoby 394 2025-03-17 13:27 nginx-wordpress.conf.j2
+
+./docker:
+total 4
+4 drwxrwxr-x 2 mykekoby mykekoby 4096 2025-03-13 14:16 devops_pet_micro/
+
+./docker/devops_pet_micro:
+total 4
+4 -rw-rw-r-- 1 mykekoby mykekoby 1740 2025-03-17 14:33 Dockerfile
+
+./terraform:
+total 32
+4 -rw-rw-r-- 1 mykekoby mykekoby  258 2025-03-11 17:59 main.tf
+4 -rw-rw-r-- 1 mykekoby mykekoby  138 2025-03-12 15:24 outputs.tf
+8 -rw-rw-r-- 1 mykekoby mykekoby 5040 2025-03-13 15:53 terraform.tfstate
+8 -rw-rw-r-- 1 mykekoby mykekoby 5243 2025-03-13 15:53 terraform.tfstate.backup
+4 -rw-rw-r-- 1 mykekoby mykekoby  177 2025-03-12 15:20 terraform.tfvars
+4 -rw-rw-r-- 1 mykekoby mykekoby  582 2025-03-11 17:59 variables.tf

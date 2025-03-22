@@ -1,0 +1,7 @@
+---
+# Обработчики для WordPress
+- name: Restart WordPress container
+  docker_container:
+    name: wordpress
+    state: started
+    restart: yes

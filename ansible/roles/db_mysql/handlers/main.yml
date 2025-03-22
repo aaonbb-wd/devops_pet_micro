@@ -1,0 +1,6 @@
+---
+- name: Restart MySQL container
+  docker_container:
+    name: mysql
+    state: started
+    restart: yes

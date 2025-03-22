@@ -1,8 +1,19 @@
 ---
-- name: create wp site
-  hosts: servers
-  become: true
+# Установка базовых компонентов Docker на всех серверах
+- name: Install Docker on all servers
+  hosts: web:db
   roles:
-    - { role: nginx, tags: ["nginx_all"] }
-    - { role: mysql, tags: ["mysql_all"] }
-    - { role: docker, tags: ["docker_all"] }
+    - { role: docker_base, tags: ["docker_base"] }
+
+#Настройка веб-сервера (Nginx в Docker + WordPress в Docker)
+- name: Configure web server
+  hosts: web
+  roles:
+    - { role: web_nginx, tags: ["web_nginx"] }
+    - { role: web_wordpress, tags: ["web_wp"] }
+
+# Настройка сервера базы данных (MySQL в Docker)
+- name: Configure database server
+  hosts: db
+  roles:
+    - { role: db_mysql, tags: ["db_mysql"] }

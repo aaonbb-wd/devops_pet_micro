@@ -8,8 +8,15 @@ variable "instance_type" {
   type        = string
 }
 
-variable "instance_name" {
-  description = "Name of EC2 instance"
+# ИЗМЕНЕНО: Переименовано из "instance_name" в "web_instance_name"
+variable "web_instance_name" {
+  description = "Name of Web EC2 instance (Nginx and WordPress)"
+  type        = string
+}
+
+# ДОБАВЛЕНО: Новая переменная для имени DB инстанса
+variable "db_instance_name" {
+  description = "Name of Database EC2 instance (MySQL)"
   type        = string
 }
 

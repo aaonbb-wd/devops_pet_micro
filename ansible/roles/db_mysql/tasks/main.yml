@@ -1,0 +1,26 @@
+---
+# Задачи для запуска MySQL контейнера на DB-сервере
+
+# Создаем директорию для данных MySQL
+- name: Create MySQL data directory
+  file:
+    path: /var/lib/mysql_data
+    state: directory
+    mode: "0755"
+
+# Запускаем контейнер MySQL
+- name: Run MySQL container
+  docker_container:
+    name: mysql
+    image: mysql:8.0
+    state: started
+    restart_policy: always
+    env:
+      MYSQL_ROOT_PASSWORD: "{{ mysql_root_password }}"
+      MYSQL_DATABASE: "{{ wp_db_name }}"
+      MYSQL_USER: "{{ wp_db_user }}"
+      MYSQL_PASSWORD: "{{ wp_db_password }}"
+    ports:
+      - "3306:3306"
+    volumes:
+      - /var/lib/mysql_data:/var/lib/mysql

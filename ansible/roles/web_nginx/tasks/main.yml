@@ -1,0 +1,33 @@
+---
+# Создаем директории для файлов конфигурации и данных
+- name: Create directories for Nginx
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: "0755"
+  loop:
+    - /etc/nginx/conf.d
+    - /var/www/wordpress
+
+# Создаем конфигурацию Nginx для WordPress
+- name: Deploy Nginx configuration for WordPress
+  template:
+    src: nginx-wordpress.conf.j2
+    dest: /etc/nginx/conf.d/wordpress.conf
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Restart Nginx container
+
+# Запускаем Nginx в контейнере
+- name: Run Nginx in Docker container
+  docker_container:
+    name: nginx
+    image: nginx:latest
+    state: started
+    restart_policy: always
+    ports:
+      - "80:80"
+    volumes:
+      - /etc/nginx/conf.d:/etc/nginx/conf.d
+      - /var/www/wordpress:/var/www/wordpress

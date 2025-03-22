@@ -1,0 +1,30 @@
+---
+# Задачи для настройки WordPress в Docker
+
+# Создаем директорию для данных WordPress
+- name: Create WordPress data directory
+  file:
+    path: /var/www/html
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: "0755"
+
+# Запускаем WordPress контейнер
+- name: Run WordPress container
+  docker_container:
+    name: wordpress
+    image: wordpress:beta-php8.3-fpm
+    state: started
+    restart_policy: always
+    env:
+      WORDPRESS_DB_HOST: "{{ mysql_host }}"
+      WORDPRESS_DB_NAME: "{{ wp_db_name }}"
+      WORDPRESS_DB_USER: "{{ wp_db_user }}"
+      WORDPRESS_DB_PASSWORD: "{{ wp_db_password }}"
+      WORDPRESS_TABLE_PREFIX: "wp_"
+    volumes:
+      - /var/www/html:/var/www/html
+    ports:
+      - "9000:9000"
+  notify: Restart Nginx container
