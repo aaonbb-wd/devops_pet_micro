@@ -18,7 +18,7 @@
     state: started
     restart_policy: always
     env:
-      WORDPRESS_DB_HOST: "{{ mysql_host }}"
+      WORDPRESS_DB_HOST: "{{ hostvars[groups['db'][0]]['ansible_host'] }}"
       WORDPRESS_DB_NAME: "{{ wp_db_name }}"
       WORDPRESS_DB_USER: "{{ wp_db_user }}"
       WORDPRESS_DB_PASSWORD: "{{ wp_db_password }}"
